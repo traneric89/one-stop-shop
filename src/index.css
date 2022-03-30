@@ -76,19 +76,29 @@
 }
 
 .container {
-  background-color: pink;
   height: 100vh;
   display: flex;
 }
 
 .selection {
-  background-color: aliceblue;
   width: 20%;
 }
 
-.items {
-  background-color: aqua;
+.item-container {
   width: 80%;
+}
+
+.items {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+}
+
+.item {
+  width: 300px;
+  height: 450px;
+}
+
+.item img {
+  max-width: 100%;
+  max-height: 100%;
 }

@@ -1,5 +1,6 @@
 import React from "react";
 import Navbar from "./Navbar";
+import Goggles from "./Goggles";
 
 const Catalogue = () => {
   return (
@@ -11,13 +12,8 @@ const Catalogue = () => {
           <h2>Skiis</h2>
           <h2>Goggles</h2>
         </div>
-        <div className="items">
-          <div className="item">1</div>
-          <div className="item">2</div>
-          <div className="item">3</div>
-          <div className="item">4</div>
-          <div className="item">5</div>
-          <div className="item">6</div>
+        <div className="item-container">
+          <Goggles />
         </div>
       </div>
     </div>
