@@ -19,7 +19,7 @@ const Navbar = () => {
       <div className="navbar-info">
         <h2
           onClick={() => {
-            navigate("/catalogue");
+            navigate("/Catalogue");
           }}
         >
           Catalogue

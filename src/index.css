@@ -97,9 +97,6 @@
 .item-container {
   margin-top: 50px;
   width: 80%;
-}
-
-.items {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
 }
@@ -118,4 +115,30 @@
 .item img {
   max-width: 100%;
   max-height: 100%;
+}
+
+.focus-item {
+  width: 80vw;
+  margin: 15px 0 0 20px;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.focus-item h1 {
+  font-weight: 300;
+  margin: 8px 0 8px 0;
+  font-size: 36px;
+}
+
+.focus-item h2 {
+  font-size: 28px;
+}
+
+.right h2 {
+  font-size: 36px;
+  margin: 100px 0 25px 0;
+}
+
+.right li {
+  font-size: 18px;
 }
