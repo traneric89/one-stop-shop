@@ -1,5 +1,5 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Navbar from "./Navbar";
 import Goggles from "./Goggles";
 import Snowboards from "./Snowboards";
@@ -101,7 +101,8 @@ const Catalogue = () => {
 
   const [showGoggles, setShowGoggles] = useState(true);
   const [showSnowboards, setShowSnowboards] = useState(true);
-  const [addToCart, setAddToCart] = useState(0);
+  const [numItems, setNumItems] = useState(0);
+  const [itemsCart, setItemsCart] = useState([]);
 
   const displayGoggles = () => {
     setShowSnowboards(false);
@@ -113,14 +114,19 @@ const Catalogue = () => {
     setShowSnowboards(true);
   };
 
-  const addItem = () => {
-    console.log("clicked");
-    setAddToCart(addToCart + 1);
+  const addNumItem = (source, itemName, price) => {
+    setNumItems(numItems + 1);
+    let newItemObj = {
+      source: source,
+      itemName: itemName,
+      price: price,
+    };
+    setItemsCart([...itemsCart, newItemObj]);
   };
 
   return (
     <div>
-      <Navbar numItems={addToCart} />
+      <Navbar numItems={numItems} itemsCart={itemsCart} />
       <div className="container">
         <div className="selection">
           <h2 onClick={displayGoggles}>Goggles</h2>
@@ -130,7 +136,7 @@ const Catalogue = () => {
           {showGoggles
             ? goggleItem.map((item) => (
                 <Goggles
-                  onClick={addItem}
+                  onClick={addNumItem}
                   key={item.itemName}
                   source={item.data.source}
                   itemName={item.data.title}
@@ -141,7 +147,7 @@ const Catalogue = () => {
           {showSnowboards
             ? snowboardItem.map((item) => (
                 <Snowboards
-                  onClick={addItem}
+                  onClick={addNumItem}
                   key={item.itemName}
                   source={item.data.source}
                   itemName={item.data.title}

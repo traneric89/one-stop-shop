@@ -18,6 +18,9 @@
   padding: 30px 40px 30px 40px;
   font-family: "Inter", sans-serif;
   letter-spacing: 2px;
+}
+
+.logo {
   cursor: pointer;
 }
 
@@ -30,6 +33,10 @@
   font-family: "Inter", sans-serif;
 }
 
+.navbar-info h2 {
+  cursor: pointer;
+}
+
 .nav-cart {
   background-color: white;
   display: flex;
@@ -40,9 +47,10 @@
   height: 50px;
   color: black;
   font-size: 28px;
+  cursor: pointer;
 }
 
-.cart-container h2 {
+.cart-icon-container h2 {
   padding: 3px 0 0 3px;
   width: 30px;
   height: 30px;
@@ -132,7 +140,6 @@
 .item {
   width: 300px;
   height: 520px;
-  cursor: pointer;
 }
 
 .snowboards {
@@ -158,26 +165,70 @@
   align-items: center;
   background-color: #13aa52;
   border: 2px solid #13aa52;
-  box-sizing: border-box;
   color: #fff;
   cursor: pointer;
-  display: inline-flex;
   font-size: 16px;
   font-weight: 300;
   height: 48px;
   justify-content: center;
   letter-spacing: -0.8px;
   line-height: 24px;
-  outline: 0;
   padding: 0 17px;
   text-align: center;
   box-shadow: rgba(0, 0, 0, 0.1) 0 2px 4px 0;
   text-decoration: none;
-  transform: translateY(0);
-  transition: transform 150ms, box-shadow 150ms;
 }
 
-.right button:hover {
-  box-shadow: rgba(0, 0, 0, 0.15) 0 3px 9px 0;
-  transform: translateY(-2px);
+.cart-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-around;
+  background-color: rgb(240, 236, 236);
+  position: absolute;
+  top: 110px;
+  right: 0;
+  height: 90%;
+  width: 600px;
+  padding-left: 50px;
+}
+
+.display-cart-items {
+  background-color: pink;
+  width: 500px;
+  height: 500px;
+}
+
+.cart-buttons {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+}
+
+.cart-buttons button {
+  margin: 12px 0;
+  align-items: center;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 300;
+  height: 48px;
+  justify-content: center;
+  letter-spacing: -0.8px;
+  line-height: 24px;
+  padding: 0 17px;
+  text-align: center;
+  box-shadow: rgba(0, 0, 0, 0.1) 0 2px 4px 0;
+  text-decoration: none;
+}
+
+.checkout-btn {
+  background-color: #000000;
+  border: 2px solid #000000;
+  color: #fff;
+}
+
+.cancel-btn {
+  background-color: #ffffff;
+  border: 2px solid #ffffff;
+  color: rgb(0, 0, 0);
 }
