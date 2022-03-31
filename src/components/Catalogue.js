@@ -3,7 +3,6 @@ import { useState } from "react";
 import Navbar from "./Navbar";
 import Goggles from "./Goggles";
 import Snowboards from "./Snowboards";
-import ItemFocus from "./ItemFocus";
 
 const Catalogue = () => {
   const [goggleItem, setGoggleItem] = useState([
@@ -102,32 +101,26 @@ const Catalogue = () => {
 
   const [showGoggles, setShowGoggles] = useState(true);
   const [showSnowboards, setShowSnowboards] = useState(true);
-  const [showItemFocus, setShowItemFocus] = useState(false);
-  const [itemFocusDetails, setItemFocusDetails] = useState([]);
+  const [addToCart, setAddToCart] = useState(0);
 
   const displayGoggles = () => {
     setShowSnowboards(false);
     setShowGoggles(true);
-    setShowItemFocus(false);
   };
 
   const displaySnowboards = () => {
     setShowGoggles(false);
     setShowSnowboards(true);
-    setShowItemFocus(false);
   };
 
-  const displayItemFocus = (source, itemName, price) => {
-    setItemFocusDetails([source, itemName, price]);
-    setShowGoggles(false);
-    setShowSnowboards(false);
-    setShowItemFocus(true);
-    console.log(itemFocusDetails);
+  const addItem = () => {
+    console.log("clicked");
+    setAddToCart(addToCart + 1);
   };
 
   return (
     <div>
-      <Navbar />
+      <Navbar numItems={addToCart} />
       <div className="container">
         <div className="selection">
           <h2 onClick={displayGoggles}>Goggles</h2>
@@ -137,7 +130,7 @@ const Catalogue = () => {
           {showGoggles
             ? goggleItem.map((item) => (
                 <Goggles
-                  onClick={displayItemFocus}
+                  onClick={addItem}
                   key={item.itemName}
                   source={item.data.source}
                   itemName={item.data.title}
@@ -148,7 +141,7 @@ const Catalogue = () => {
           {showSnowboards
             ? snowboardItem.map((item) => (
                 <Snowboards
-                  onClick={displayItemFocus}
+                  onClick={addItem}
                   key={item.itemName}
                   source={item.data.source}
                   itemName={item.data.title}
@@ -156,13 +149,6 @@ const Catalogue = () => {
                 />
               ))
             : null}
-          {showItemFocus ? (
-            <ItemFocus
-              source={itemFocusDetails[0]}
-              itemName={itemFocusDetails[1]}
-              price={itemFocusDetails[2]}
-            />
-          ) : null}
         </div>
       </div>
     </div>

@@ -1,8 +1,10 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 import { GiMountains } from "react-icons/gi";
+import { FaShoppingCart } from "react-icons/fa";
 
-const Navbar = () => {
+const Navbar = ({ numItems }) => {
   const navigate = useNavigate();
 
   return (
@@ -22,9 +24,14 @@ const Navbar = () => {
             navigate("/Catalogue");
           }}
         >
-          Catalogue
+          Shop
         </h2>
-        <h2>4 Bag</h2>
+        <div className="cart-container">
+          <div className="nav-cart">
+            <FaShoppingCart />
+          </div>
+          <h2>{numItems}</h2>
+        </div>
       </div>
     </div>
   );
