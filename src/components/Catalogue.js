@@ -11,7 +11,7 @@ const Catalogue = () => {
       data: {
         source: "elite",
         title: "Smith Elite Goggles",
-        price: "$129.00",
+        price: 129.0,
       },
     },
     {
@@ -19,7 +19,7 @@ const Catalogue = () => {
       data: {
         source: "aura",
         title: "Smith Aura Goggles",
-        price: "$149.00",
+        price: 149.0,
       },
     },
     {
@@ -27,7 +27,7 @@ const Catalogue = () => {
       data: {
         source: "pilot",
         title: "Smith Pilot Goggles",
-        price: "$75.00",
+        price: 75.0,
       },
     },
     {
@@ -35,7 +35,7 @@ const Catalogue = () => {
       data: {
         source: "flight",
         title: "Smith Flight Goggles",
-        price: "$250.00",
+        price: 250.0,
       },
     },
     {
@@ -43,7 +43,7 @@ const Catalogue = () => {
       data: {
         source: "kim",
         title: "Smith Kim Goggles",
-        price: "$129.00",
+        price: 129.0,
       },
     },
     {
@@ -51,7 +51,7 @@ const Catalogue = () => {
       data: {
         source: "dawn",
         title: "Smith Dawm Goggles",
-        price: "$180.00",
+        price: 180.0,
       },
     },
   ]);
@@ -62,7 +62,7 @@ const Catalogue = () => {
       data: {
         source: "blaze",
         title: "Burton Blaze 2.0",
-        price: "$649.00",
+        price: 649.0,
       },
     },
     {
@@ -70,7 +70,7 @@ const Catalogue = () => {
       data: {
         source: "arrow",
         title: "Burton Arrow",
-        price: "$850.00",
+        price: 850.0,
       },
     },
     {
@@ -78,7 +78,7 @@ const Catalogue = () => {
       data: {
         source: "altitude",
         title: "K2 Altitutude",
-        price: "$720.00",
+        price: 720.0,
       },
     },
     {
@@ -86,7 +86,7 @@ const Catalogue = () => {
       data: {
         source: "triplet",
         title: "YES Triplet",
-        price: "$1090.00",
+        price: 1090.0,
       },
     },
     {
@@ -94,7 +94,7 @@ const Catalogue = () => {
       data: {
         source: "angel",
         title: "Libtech Angel",
-        price: "$960.00",
+        price: 960.0,
       },
     },
   ]);

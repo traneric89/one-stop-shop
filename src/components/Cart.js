@@ -1,6 +1,7 @@
 import React from "react";
+import ItemCart from "./ItemCart";
 
-const Cart = ({ itemsCart }) => {
+const Cart = ({ itemsCart, onClick }) => {
   const totalPrice = () => {
     let total = itemsCart.reduce((accumulator, currentTotal) => {
       return accumulator + currentTotal.price;
@@ -10,12 +11,23 @@ const Cart = ({ itemsCart }) => {
 
   return (
     <div className="cart-container">
-      <div className="display-cart-items">img</div>
+      <div className="display-cart-items">
+        {itemsCart.map((item) => (
+          <ItemCart
+            key={item.itemName}
+            source={item.source}
+            itemName={item.itemName}
+            price={item.price}
+          />
+        ))}
+      </div>
       <div className="checkout">
-        <h1>Total: {totalPrice()}</h1>
+        <h1>Total: ${totalPrice()}</h1>
         <div className="cart-buttons">
           <button className="checkout-btn">Checkout</button>
-          <button className="cancel-btn">Cancel</button>
+          <button className="cancel-btn" onClick={onClick}>
+            Cancel
+          </button>
         </div>
       </div>
     </div>

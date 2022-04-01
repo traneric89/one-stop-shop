@@ -7,6 +7,15 @@ import Cart from "./Cart";
 
 const Navbar = ({ numItems, itemsCart }) => {
   const navigate = useNavigate();
+  const [showCart, setShowCart] = useState(false);
+
+  const displayCart = () => {
+    setShowCart(true);
+  };
+
+  const removeDisplayCart = () => {
+    setShowCart(false);
+  };
 
   return (
     <div>
@@ -30,13 +39,15 @@ const Navbar = ({ numItems, itemsCart }) => {
           </h2>
           <div className="cart-icon-container">
             <div className="nav-cart">
-              <FaShoppingCart />
+              <FaShoppingCart onClick={displayCart} />
             </div>
-            <h2>{numItems}</h2>
+            <h2 onClick={displayCart}>{numItems}</h2>
           </div>
         </div>
       </div>
-      <Cart itemsCart={itemsCart} />
+      {showCart ? (
+        <Cart itemsCart={itemsCart} onClick={removeDisplayCart} />
+      ) : null}
     </div>
   );
 };
