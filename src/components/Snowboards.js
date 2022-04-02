@@ -1,6 +1,6 @@
 import React from "react";
 
-const Snowboards = ({ onClick, source, itemName, price }) => {
+const Snowboards = ({ onClick, source, itemName, price, qty, id }) => {
   return (
     <div className="item snowboards">
       <img src={require("../images/products/" + source + ".jpg")} alt="" />
@@ -9,7 +9,7 @@ const Snowboards = ({ onClick, source, itemName, price }) => {
       <div className="button-container">
         <button
           className="add-cart"
-          onClick={() => onClick(source, itemName, price)}
+          onClick={() => onClick(source, itemName, price, qty, id)}
         >
           Add To Cart
         </button>

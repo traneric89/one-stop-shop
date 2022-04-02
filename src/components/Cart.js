@@ -1,5 +1,6 @@
 import React from "react";
 import ItemCart from "./ItemCart";
+import uniqid from "uniqid";
 
 const Cart = ({ itemsCart, onClick }) => {
   const totalPrice = () => {
@@ -14,7 +15,7 @@ const Cart = ({ itemsCart, onClick }) => {
       <div className="display-cart-items">
         {itemsCart.map((item) => (
           <ItemCart
-            key={item.itemName}
+            key={uniqid()}
             source={item.source}
             itemName={item.itemName}
             price={item.price}

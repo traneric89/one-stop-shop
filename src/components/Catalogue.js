@@ -1,8 +1,9 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Navbar from "./Navbar";
 import Goggles from "./Goggles";
 import Snowboards from "./Snowboards";
+import uniqid from "uniqid";
 
 const Catalogue = () => {
   const [goggleItem, setGoggleItem] = useState([
@@ -12,6 +13,8 @@ const Catalogue = () => {
         source: "elite",
         title: "Smith Elite Goggles",
         price: 129.0,
+        qty: 1,
+        id: 1,
       },
     },
     {
@@ -20,6 +23,8 @@ const Catalogue = () => {
         source: "aura",
         title: "Smith Aura Goggles",
         price: 149.0,
+        qty: 1,
+        id: 2,
       },
     },
     {
@@ -28,6 +33,8 @@ const Catalogue = () => {
         source: "pilot",
         title: "Smith Pilot Goggles",
         price: 75.0,
+        qty: 1,
+        id: 3,
       },
     },
     {
@@ -36,6 +43,8 @@ const Catalogue = () => {
         source: "flight",
         title: "Smith Flight Goggles",
         price: 250.0,
+        qty: 1,
+        id: 4,
       },
     },
     {
@@ -44,14 +53,18 @@ const Catalogue = () => {
         source: "kim",
         title: "Smith Kim Goggles",
         price: 129.0,
+        qty: 1,
+        id: 5,
       },
     },
     {
       itemName: "dawn",
       data: {
         source: "dawn",
-        title: "Smith Dawm Goggles",
+        title: "Smith Dawn Goggles",
         price: 180.0,
+        qty: 1,
+        id: 6,
       },
     },
   ]);
@@ -63,6 +76,8 @@ const Catalogue = () => {
         source: "blaze",
         title: "Burton Blaze 2.0",
         price: 649.0,
+        qty: 1,
+        id: 7,
       },
     },
     {
@@ -71,6 +86,8 @@ const Catalogue = () => {
         source: "arrow",
         title: "Burton Arrow",
         price: 850.0,
+        qty: 1,
+        id: 8,
       },
     },
     {
@@ -79,6 +96,8 @@ const Catalogue = () => {
         source: "altitude",
         title: "K2 Altitutude",
         price: 720.0,
+        qty: 1,
+        id: 9,
       },
     },
     {
@@ -87,6 +106,8 @@ const Catalogue = () => {
         source: "triplet",
         title: "YES Triplet",
         price: 1090.0,
+        qty: 1,
+        id: 10,
       },
     },
     {
@@ -95,6 +116,8 @@ const Catalogue = () => {
         source: "angel",
         title: "Libtech Angel",
         price: 960.0,
+        qty: 1,
+        id: 11,
       },
     },
   ]);
@@ -103,6 +126,8 @@ const Catalogue = () => {
   const [showSnowboards, setShowSnowboards] = useState(true);
   const [numItems, setNumItems] = useState(0);
   const [itemsCart, setItemsCart] = useState([]);
+  const [newItem, setNewItem] = useState({});
+  const isMounted = useRef(false);
 
   const displayGoggles = () => {
     setShowSnowboards(false);
@@ -114,15 +139,41 @@ const Catalogue = () => {
     setShowSnowboards(true);
   };
 
-  const addNumItem = (source, itemName, price) => {
+  const incrementNumItems = (source, itemName, price, qty, id) => {
     setNumItems(numItems + 1);
     let newItemObj = {
       source: source,
       itemName: itemName,
       price: price,
+      qty: qty,
+      id: id,
     };
+    setNewItem(newItemObj);
     setItemsCart([...itemsCart, newItemObj]);
   };
+
+  useEffect(() => {
+    if (isMounted.current) {
+      if (itemsCart.length != 1) {
+        const itemsCartCopy = [...itemsCart];
+        const newItemCopy = { ...newItem };
+        for (let i = 0; i < itemsCartCopy.length; i++) {
+          if (itemsCartCopy[i].id === newItem.id) {
+            console.log("found same item");
+            itemsCartCopy[i].qty++;
+            itemsCartCopy.splice(i, 1);
+          } else {
+            console.log("not same item");
+            itemsCartCopy.push(newItemCopy);
+          }
+        }
+        console.log(itemsCartCopy);
+        setItemsCart(itemsCartCopy);
+      }
+    } else {
+      isMounted.current = true;
+    }
+  }, [newItem]);
 
   return (
     <div>
@@ -136,22 +187,26 @@ const Catalogue = () => {
           {showGoggles
             ? goggleItem.map((item) => (
                 <Goggles
-                  onClick={addNumItem}
-                  key={item.itemName}
+                  onClick={incrementNumItems}
+                  key={uniqid()}
                   source={item.data.source}
                   itemName={item.data.title}
                   price={item.data.price}
+                  qty={item.data.qty}
+                  id={item.data.id}
                 />
               ))
             : null}
           {showSnowboards
             ? snowboardItem.map((item) => (
                 <Snowboards
-                  onClick={addNumItem}
-                  key={item.itemName}
+                  onClick={incrementNumItems}
+                  key={uniqid()}
                   source={item.data.source}
                   itemName={item.data.title}
                   price={item.data.price}
+                  qty={item.data.qty}
+                  id={item.data.id}
                 />
               ))
             : null}
