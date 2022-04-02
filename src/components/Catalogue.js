@@ -149,19 +149,23 @@ const Catalogue = () => {
       id: id,
     };
     setNewItem(newItemObj);
-    setItemsCart([...itemsCart, newItemObj]);
   };
 
   useEffect(() => {
     if (isMounted.current) {
-      if (itemsCart.length != 1) {
-        const itemsCartCopy = [...itemsCart];
-        const newItemCopy = { ...newItem };
+      if (itemsCart.length === 0) {
+        setItemsCart([newItem]);
+        console.log("new item 1ST EVER: " + newItem);
+        console.log("ITEM CART 1ST EVER: " + itemsCart);
+      } else if (itemsCart.length >= 1) {
+        const itemsCartCopy = itemsCart;
+        const newItemCopy = newItem;
+        console.log("item cart copy: " + JSON.stringify(itemsCartCopy));
+        console.log("new item copy: " + JSON.stringify(newItemCopy));
         for (let i = 0; i < itemsCartCopy.length; i++) {
           if (itemsCartCopy[i].id === newItem.id) {
             console.log("found same item");
             itemsCartCopy[i].qty++;
-            itemsCartCopy.splice(i, 1);
           } else {
             console.log("not same item");
             itemsCartCopy.push(newItemCopy);
@@ -169,6 +173,8 @@ const Catalogue = () => {
         }
         console.log(itemsCartCopy);
         setItemsCart(itemsCartCopy);
+        // setItemsCart([...itemsCart, itemsCartCopy]);
+        console.log(itemsCart);
       }
     } else {
       isMounted.current = true;
