@@ -4,8 +4,8 @@ import uniqid from "uniqid";
 
 const Cart = ({ itemsCart, onClick }) => {
   const totalPrice = () => {
-    let total = itemsCart.reduce((accumulator, currentTotal) => {
-      return accumulator + currentTotal.price;
+    let total = itemsCart.reduce((currentTotal, nextTotal) => {
+      return currentTotal + nextTotal.price * nextTotal.qty;
     }, 0);
     return total;
   };
@@ -19,6 +19,7 @@ const Cart = ({ itemsCart, onClick }) => {
             source={item.source}
             itemName={item.itemName}
             price={item.price}
+            qty={item.qty}
           />
         ))}
       </div>

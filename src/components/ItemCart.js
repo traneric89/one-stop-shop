@@ -1,6 +1,6 @@
 import React from "react";
 
-const ItemCart = ({ source, itemName, price }) => {
+const ItemCart = ({ source, itemName, price, qty }) => {
   return (
     <div className="cart-item-container">
       <img src={require("../images/products/" + source + ".jpg")} alt="" />
@@ -8,7 +8,7 @@ const ItemCart = ({ source, itemName, price }) => {
       <h3>${price}</h3>
       <div className="item-quantity">
         <button>-</button>
-        <span>3</span>
+        <span>{qty}</span>
         <button>+</button>
       </div>
     </div>

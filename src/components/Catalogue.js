@@ -152,29 +152,24 @@ const Catalogue = () => {
   };
 
   useEffect(() => {
+    let foundDuplicate = 0;
     if (isMounted.current) {
       if (itemsCart.length === 0) {
         setItemsCart([newItem]);
-        console.log("new item 1ST EVER: " + newItem);
-        console.log("ITEM CART 1ST EVER: " + itemsCart);
       } else if (itemsCart.length >= 1) {
         const itemsCartCopy = itemsCart;
         const newItemCopy = newItem;
-        console.log("item cart copy: " + JSON.stringify(itemsCartCopy));
-        console.log("new item copy: " + JSON.stringify(newItemCopy));
         for (let i = 0; i < itemsCartCopy.length; i++) {
           if (itemsCartCopy[i].id === newItem.id) {
-            console.log("found same item");
             itemsCartCopy[i].qty++;
-          } else {
-            console.log("not same item");
-            itemsCartCopy.push(newItemCopy);
+            foundDuplicate++;
+            break;
           }
         }
-        console.log(itemsCartCopy);
+        if (!foundDuplicate) {
+          itemsCartCopy.push(newItemCopy);
+        }
         setItemsCart(itemsCartCopy);
-        // setItemsCart([...itemsCart, itemsCartCopy]);
-        console.log(itemsCart);
       }
     } else {
       isMounted.current = true;
