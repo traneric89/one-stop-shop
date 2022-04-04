@@ -26,9 +26,11 @@ const Cart = ({ itemsCart, onClick }) => {
       <div className="checkout">
         <h1>Total: ${totalPrice()}</h1>
         <div className="cart-buttons">
-          <button className="checkout-btn">Checkout</button>
-          <button className="cancel-btn" onClick={onClick}>
-            Cancel
+          <button className="checkout-btn btn">
+            <span className="btn-text">Checkout</span>
+          </button>
+          <button className="cancel-btn btn" onClick={onClick}>
+            <span className="btn-text">Cancel</span>
           </button>
         </div>
       </div>

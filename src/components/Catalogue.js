@@ -122,6 +122,7 @@ const Catalogue = () => {
     },
   ]);
 
+  const [showCart, setShowCart] = useState(false);
   const [showGoggles, setShowGoggles] = useState(true);
   const [showSnowboards, setShowSnowboards] = useState(true);
   const [numItems, setNumItems] = useState(0);
@@ -137,6 +138,11 @@ const Catalogue = () => {
   const displaySnowboards = () => {
     setShowGoggles(false);
     setShowSnowboards(true);
+  };
+
+  const showCartDisplay = (set) => {
+    console.log(set);
+    setShowCart(set);
   };
 
   const incrementNumItems = (source, itemName, price, qty, id) => {
@@ -178,8 +184,12 @@ const Catalogue = () => {
 
   return (
     <div>
-      <Navbar numItems={numItems} itemsCart={itemsCart} />
-      <div className="container">
+      <Navbar
+        numItems={numItems}
+        itemsCart={itemsCart}
+        onClick={showCartDisplay}
+      />
+      <div className={showCart ? "container shop-disable" : "container"}>
         <div className="selection">
           <h2 onClick={displayGoggles}>Goggles</h2>
           <h2 onClick={displaySnowboards}>Snowboards</h2>
