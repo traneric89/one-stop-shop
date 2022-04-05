@@ -2,7 +2,7 @@ import React from "react";
 import ItemCart from "./ItemCart";
 import uniqid from "uniqid";
 
-const Cart = ({ itemsCart, onClick }) => {
+const Cart = ({ itemsCart, onClick, onIncrement, onDecrement }) => {
   const totalPrice = () => {
     let total = itemsCart.reduce((currentTotal, nextTotal) => {
       return currentTotal + nextTotal.price * nextTotal.qty;
@@ -20,6 +20,9 @@ const Cart = ({ itemsCart, onClick }) => {
             itemName={item.itemName}
             price={item.price}
             qty={item.qty}
+            id={item.id}
+            onIncrement={onIncrement}
+            onDecrement={onDecrement}
           />
         ))}
       </div>

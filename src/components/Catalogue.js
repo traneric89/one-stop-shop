@@ -141,8 +141,41 @@ const Catalogue = () => {
   };
 
   const showCartDisplay = (set) => {
-    console.log(set);
     setShowCart(set);
+  };
+
+  const decrementItemQty = (itemId) => {
+    console.log("Decrement item qty");
+    console.log(itemId);
+    setNumItems(numItems - 1);
+
+    const itemsCartCopy = itemsCart;
+    for (let i = 0; i < itemsCartCopy.length; i++) {
+      if (itemsCartCopy[i].id === itemId) {
+        if (itemsCartCopy[i].qty > 1) {
+          itemsCartCopy[i].qty--;
+          break;
+        } else if (itemsCartCopy[i].qty === 1) {
+          itemsCartCopy.splice(i, 1);
+        }
+      }
+    }
+    setItemsCart(itemsCartCopy);
+  };
+
+  const incrementItemQty = (itemId) => {
+    console.log("Increment item qty");
+    console.log(itemId);
+    setNumItems(numItems + 1);
+
+    const itemsCartCopy = itemsCart;
+    for (let i = 0; i < itemsCartCopy.length; i++) {
+      if (itemsCartCopy[i].id === itemId) {
+        itemsCartCopy[i].qty++;
+        break;
+      }
+    }
+    setItemsCart(itemsCartCopy);
   };
 
   const incrementNumItems = (source, itemName, price, qty, id) => {
@@ -188,6 +221,8 @@ const Catalogue = () => {
         numItems={numItems}
         itemsCart={itemsCart}
         onClick={showCartDisplay}
+        onIncrement={incrementItemQty}
+        onDecrement={decrementItemQty}
       />
       <div className={showCart ? "container shop-disable" : "container"}>
         <div className="selection">

@@ -5,7 +5,7 @@ import { GiMountains } from "react-icons/gi";
 import { FaShoppingCart } from "react-icons/fa";
 import Cart from "./Cart";
 
-const Navbar = ({ numItems, itemsCart, onClick }) => {
+const Navbar = ({ numItems, itemsCart, onClick, onIncrement, onDecrement }) => {
   const navigate = useNavigate();
   const [showCart, setShowCart] = useState(false);
 
@@ -52,6 +52,8 @@ const Navbar = ({ numItems, itemsCart, onClick }) => {
           itemsCart={itemsCart}
           onClick={removeDisplayCart}
           className="cart-translate"
+          onIncrement={onIncrement}
+          onDecrement={onDecrement}
         />
       ) : null}
     </div>

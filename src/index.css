@@ -186,6 +186,10 @@
   text-decoration: none;
 }
 
+.add-cart:active {
+  transform: translateY(-2px);
+}
+
 .cart-container {
   transition: all 1s;
   display: flex;
