@@ -221,6 +221,10 @@
   height: 500px;
 }
 
+.homepage-cart-icon-container {
+  display: none;
+}
+
 .cart-item-container img {
   width: 300px;
   height: 300px;

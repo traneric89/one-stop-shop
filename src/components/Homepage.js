@@ -1,15 +1,11 @@
 import React from "react";
-import { useState } from "react";
-import Navbar from "./Navbar";
+import NavbarHomepage from "./NavbarHomepage";
 import { Typewriter } from "react-simple-typewriter";
 
 const Homepage = () => {
-  const [numItems, setNumItems] = useState(0);
-  const [itemsCart, setItemsCart] = useState([]);
-
   return (
     <div>
-      <Navbar numItems={numItems} itemsCart={itemsCart} />
+      <NavbarHomepage />
       <p className="typewriter">
         <Typewriter
           loop

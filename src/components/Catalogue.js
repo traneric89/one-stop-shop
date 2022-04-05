@@ -145,8 +145,6 @@ const Catalogue = () => {
   };
 
   const decrementItemQty = (itemId) => {
-    console.log("Decrement item qty");
-    console.log(itemId);
     setNumItems(numItems - 1);
 
     const itemsCartCopy = itemsCart;
@@ -164,8 +162,6 @@ const Catalogue = () => {
   };
 
   const incrementItemQty = (itemId) => {
-    console.log("Increment item qty");
-    console.log(itemId);
     setNumItems(numItems + 1);
 
     const itemsCartCopy = itemsCart;
@@ -214,6 +210,11 @@ const Catalogue = () => {
       isMounted.current = true;
     }
   }, [newItem]);
+
+  useEffect(() => {
+    localStorage.setItem("itemsCart", JSON.stringify(itemsCart));
+    localStorage.setItem("numItems", numItems);
+  }, [numItems, itemsCart]);
 
   return (
     <div>
