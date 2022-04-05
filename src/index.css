@@ -68,7 +68,7 @@
 .typewriter {
   font-size: 72px;
   position: absolute;
-  top: 50%;
+  top: 400px;
   left: 15%;
   font-weight: 300;
 }
@@ -94,10 +94,11 @@
 .subheading {
   font-size: 22px;
   font-weight: 300;
+  padding: 0 300px;
 }
 
 .missions {
-  margin-top: 90px;
+  margin-top: 50px;
   display: flex;
   width: 100%;
   align-items: center;
@@ -335,4 +336,83 @@
 
 .btn:active {
   transform: translateY(2px);
+}
+
+@media screen and (min-width: 400px) and (max-width: 1100px) {
+  .typewriter {
+    font-size: 60px;
+  }
+  .mission-div h1 {
+    font-size: 40px;
+  }
+
+  .subheading {
+    font-size: 22px;
+    padding: 0 200px;
+  }
+
+  .missions {
+    margin-top: 90px;
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-around;
+  }
+
+  .missions h2 {
+    font-size: 30px;
+    margin-bottom: 10px;
+  }
+
+  .mission img {
+    width: 350px;
+    height: 350px;
+  }
+
+  .missions h3 {
+    font-size: 18px;
+    font-weight: 300;
+    width: 320px;
+    margin: 10px 0 50px 0;
+  }
+  .item-container {
+    width: 80%;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (min-width: 200px) and (max-width: 899px) {
+  .logo {
+    font-size: 10px;
+  }
+  .navbar-info {
+    font-size: 10px;
+  }
+  .nav-cart {
+    font-size: 20px;
+    width: 40px;
+    height: 40px;
+  }
+  .subheading {
+    padding: 0 100px;
+  }
+  .missions {
+    margin-top: 45px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+  }
+  .selection {
+    display: none;
+  }
+  .item-container {
+    width: 100%;
+    margin-left: 50px;
+  }
+  .item {
+    width: 250px;
+    height: 475px;
+  }
 }

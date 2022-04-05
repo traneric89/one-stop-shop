@@ -7,7 +7,7 @@ const NavbarHomepage = () => {
   const navigate = useNavigate();
   return (
     <div>
-      <div className="navbar">
+      <div className="navbar navbar-homepage">
         <div className="logo">
           <h1
             onClick={() => {
@@ -17,7 +17,7 @@ const NavbarHomepage = () => {
             Slope Shredders <GiMountains />
           </h1>
         </div>
-        <div className="navbar-info">
+        <div className="navbar-info navbar-info-homepage">
           <h2
             onClick={() => {
               navigate("/Catalogue");
