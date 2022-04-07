@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/one-stop-shop/static/css/main.882670d9.css",
-    "main.js": "/one-stop-shop/static/js/main.87f8581e.js",
+    "main.js": "/one-stop-shop/static/js/main.b312e037.js",
     "static/media/sustain.jpeg": "/one-stop-shop/static/media/sustain.90bcbae2136dd5f4383b.jpeg",
     "static/media/mountains.jfif": "/one-stop-shop/static/media/mountains.164a0a186ed1ceda820f.jfif",
     "static/media/flight.jpg": "/one-stop-shop/static/media/flight.de7646e8f491f06fef1f.jpg",
@@ -17,10 +17,10 @@
     "static/media/arrow.jpg": "/one-stop-shop/static/media/arrow.1f3aaea54f1ab0b3e1ea.jpg",
     "index.html": "/one-stop-shop/index.html",
     "main.882670d9.css.map": "/one-stop-shop/static/css/main.882670d9.css.map",
-    "main.87f8581e.js.map": "/one-stop-shop/static/js/main.87f8581e.js.map"
+    "main.b312e037.js.map": "/one-stop-shop/static/js/main.b312e037.js.map"
   },
   "entrypoints": [
     "static/css/main.882670d9.css",
-    "static/js/main.87f8581e.js"
+    "static/js/main.b312e037.js"
   ]
 }
