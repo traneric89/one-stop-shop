@@ -4,7 +4,7 @@ import Catalogue from "./components/Catalogue";
 
 const RouteSwitch = () => {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/one-stop-shop">
       <Routes>
         <Route path="/" element={<App />} />
         <Route path="/Catalogue" element={<Catalogue />} />
